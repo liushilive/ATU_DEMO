@@ -1,9 +1,9 @@
 dist: xenial
-language: python
-python:
-  - "3.7"
+# language: python
+# python:
+  # - "3.7"
 # command to install dependencies
-install:
+# install:
 # command to run tests
 script:
   - ls -al
@@ -21,6 +21,6 @@ branches:
     - master
 env:
   global:
-    - REF=github_exercise_linux
+    - REF=ATU_DEMO
 before_install:
 - export TZ='Asia/Shanghai'
