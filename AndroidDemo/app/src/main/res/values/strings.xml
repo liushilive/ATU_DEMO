@@ -1,0 +1,70 @@
+<resources>
+    <string name="app_name">AT</string>
+    <string name="navigation_drawer_open">打开导航抽屉</string>
+    <string name="navigation_drawer_close">关闭导航抽屉</string>
+    <string name="nav_header_name">刘士</string>
+    <string name="nav_header_email">liushilive@outlook.com</string>
+    <string name="nav_header_gitee">https://liushilive.gitee.io</string>
+    <string name="nav_header_github">https://liushilive.github.io</string>
+    <string name="action_settings">设置</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_webview">WebView</string>
+    <string name="menu_dsc">DSC</string>
+
+    <string name="name">姓名：</string>
+    <string name="sex">性别：</string>
+    <string name="man">男</string>
+    <string name="woman">女</string>
+    <string name="native_place">籍贯：</string>
+    <string name="birthdate">出生年月：</string>
+    <string name="long_press">长按有惊喜</string>
+    <string name="crash">闪退</string>
+    <string name="not_responding">未响应</string>
+    <string name="self_score">自我评分：</string>
+    <string name="signature">签字：</string>
+    <string name="time_selection">时间选择</string>
+    <string name="years_of_working">工作年限：</string>
+    <string name="date_selection">日期选择</string>
+
+    <string-array name="spinner_native_place">
+        <item>安徽省</item>
+        <item>福建省</item>
+        <item>甘肃省</item>
+        <item>广东省</item>
+        <item>贵州省</item>
+        <item>海南省</item>
+        <item>河北省</item>
+        <item>河南省</item>
+        <item>黑龙江省</item>
+        <item>湖北省</item>
+        <item>湖南省</item>
+        <item>吉林省</item>
+        <item>江苏省</item>
+        <item>江西省</item>
+        <item>辽宁省</item>
+        <item>青海省</item>
+        <item>山东省</item>
+        <item>山西省</item>
+        <item>陕西省</item>
+        <item>四川省</item>
+        <item>台湾省</item>
+        <item>云南省</item>
+        <item>浙江省</item>
+    </string-array>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails</string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+
+</resources>
