@@ -1,7 +1,6 @@
 package liushilive.github.io.ui.webview;
 
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +18,7 @@ public class WebviewFragment extends WebViewBase {
 
         init(root);
 
-        mWebView.loadUrl("http://www.bing.com/");
+        mWebView.loadUrl("https://liushilive.gitee.io/html_example/index1.html");
         return root;
     }
 

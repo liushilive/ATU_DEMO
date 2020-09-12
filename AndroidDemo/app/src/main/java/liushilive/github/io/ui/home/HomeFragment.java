@@ -135,7 +135,7 @@ public class HomeFragment extends Fragment implements OnClickListener, OnLongCli
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 UserModel userModel = homeViewModel.getUserModeLiveData().getValue();
-                Objects.requireNonNull(userModel).birthdate = String.format("%04d年%02d月%02d日", year, month, dayOfMonth);
+                Objects.requireNonNull(userModel).birthdate = String.format("%04d年%02d月%02d日", year, month + 1, dayOfMonth);
                 homeViewModel.setUserModelLiveData(userModel);
             }
         }, year, month, dayOfMonth);
