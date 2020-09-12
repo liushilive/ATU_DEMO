@@ -45,18 +45,18 @@ public class FingerView extends View {
                 break;
             case MotionEvent.ACTION_MOVE:
                 // Update all pointers since ACTION_MOVE events don't provide a pointer index
-                for (Map.Entry<Integer, Path> entry : pointerPathMap.entrySet()) {
-                    idx = event.findPointerIndex(entry.getKey());
-                    try {
+                try {
+                    for (Map.Entry<Integer, Path> entry : pointerPathMap.entrySet()) {
+                        idx = event.findPointerIndex(entry.getKey());
                         entry.getValue().lineTo(event.getX(idx), event.getY(idx));
-                    } catch (IllegalArgumentException e) {
-                        e.printStackTrace();
                     }
+                } catch (IllegalArgumentException e) {
+                    e.printStackTrace();
                 }
                 break;
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_POINTER_UP:
-//                pointerPathMap.remove(id);
+                pointerPathMap.remove(id);
                 break;
             default:
                 break;
