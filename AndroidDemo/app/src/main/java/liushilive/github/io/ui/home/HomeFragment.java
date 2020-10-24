@@ -1,8 +1,10 @@
 package liushilive.github.io.ui.home;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.pm.PackageManager;
 import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -16,17 +18,22 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import liushilive.github.io.R;
 
 import static android.view.View.OnLongClickListener;
+import static androidx.core.content.ContextCompat.checkSelfPermission;
 
 public class HomeFragment extends Fragment implements OnClickListener, OnLongClickListener, OnSeekBarChangeListener {
 
@@ -59,6 +66,7 @@ public class HomeFragment extends Fragment implements OnClickListener, OnLongCli
         root.findViewById(R.id.button_time).setOnClickListener(this);
         root.findViewById(R.id.button_crash).setOnClickListener(this);
         root.findViewById(R.id.button_not_responding).setOnClickListener(this);
+        root.findViewById(R.id.button_permission).setOnClickListener(this);
 
         root.findViewById(R.id.button_long_press).setOnLongClickListener(this);
 
@@ -89,8 +97,95 @@ public class HomeFragment extends Fragment implements OnClickListener, OnLongCli
             case R.id.button_not_responding:
                 SystemClock.sleep(20 * 1000);
                 break;
+            case R.id.button_permission:
+                request_permissions();
+                break;
             default:
                 break;
+        }
+    }
+
+    // 请求多个权限
+    private void request_permissions() {
+        // 创建一个权限列表，把需要使用而没用授权的的权限存放在这里
+        List<String> permissionList = new ArrayList<>();
+
+        // 判断权限是否已经授予，没有就把该权限添加到列表中
+        if (checkSelfPermission(getContext(), Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.READ_CALENDAR);
+        }
+        if (checkSelfPermission(getContext(), Manifest.permission.WRITE_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.WRITE_CALENDAR);
+        }
+        if (checkSelfPermission(getContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.CAMERA);
+        }
+        if (checkSelfPermission(getContext(), Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.READ_CONTACTS);
+        }
+        if (checkSelfPermission(getContext(), Manifest.permission.WRITE_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.WRITE_CONTACTS);
+        }
+        if (checkSelfPermission(getContext(), Manifest.permission.GET_ACCOUNTS) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.GET_ACCOUNTS);
+        }
+        if (checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.ACCESS_FINE_LOCATION);
+        }
+        if (checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.ACCESS_COARSE_LOCATION);
+        }
+        if (checkSelfPermission(getContext(), Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.RECORD_AUDIO);
+        }
+        if (checkSelfPermission(getContext(), Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.READ_PHONE_STATE);
+        }
+        if (checkSelfPermission(getContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.CALL_PHONE);
+        }
+        if (checkSelfPermission(getContext(), Manifest.permission.READ_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.READ_CALL_LOG);
+        }
+        if (checkSelfPermission(getContext(), Manifest.permission.WRITE_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.WRITE_CALL_LOG);
+        }
+        if (checkSelfPermission(getContext(), Manifest.permission.USE_SIP) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.USE_SIP);
+        }
+        if (checkSelfPermission(getContext(), Manifest.permission.BODY_SENSORS) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.BODY_SENSORS);
+        }
+        if (checkSelfPermission(getContext(), Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.SEND_SMS);
+        }
+        if (checkSelfPermission(getContext(), Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.RECEIVE_SMS);
+        }
+        if (checkSelfPermission(getContext(), Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.READ_SMS);
+        }
+        if (checkSelfPermission(getContext(), Manifest.permission.RECEIVE_WAP_PUSH) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.RECEIVE_WAP_PUSH);
+        }
+        if (checkSelfPermission(getContext(), Manifest.permission.RECEIVE_MMS) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.RECEIVE_MMS);
+        }
+        if (checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.READ_EXTERNAL_STORAGE);
+        }
+        if (checkSelfPermission(getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        }
+
+        // 如果列表为空，就是全部权限都获取了，不用再次获取了。不为空就去申请权限
+        if (!permissionList.isEmpty()) {
+            Toast.makeText(getContext(), "共计申请 " + permissionList.size() + " 个权限", Toast.LENGTH_LONG).show();
+            ActivityCompat.requestPermissions(Objects.requireNonNull(getActivity()),
+                    permissionList.toArray(new String[permissionList.size()]),
+                    1002);
+        } else {
+            Toast.makeText(getContext(), "权限你都有了，不用再次申请", Toast.LENGTH_LONG).show();
         }
     }
 

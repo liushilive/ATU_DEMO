@@ -11,7 +11,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:text="@string/long_press"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seekBar_score"
@@ -19,36 +18,34 @@
 
     <Button
         android:id="@+id/button_crash"
-        android:layout_width="88dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
         android:text="@string/crash"
-        app:layout_constraintEnd_toStartOf="@+id/button_not_responding"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_long_press"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/button_not_responding"
-        android:layout_width="88dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:text="@string/not_responding"
         app:layout_constraintBottom_toBottomOf="@+id/button_crash"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button_crash"
         app:layout_constraintTop_toTopOf="@+id/button_crash"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/button_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:text="@string/time_selection"
         app:layout_constraintBottom_toBottomOf="@+id/button_long_press"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_long_press"
         app:layout_constraintTop_toTopOf="@+id/button_long_press" />
 
     <EditText
@@ -56,12 +53,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:contentDescription="@string/name"
         android:ems="10"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toTopOf="parent" />
@@ -71,22 +68,19 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/editText_name">
 
         <RadioButton
             android:id="@+id/radioButton_man"
-            android:layout_width="60dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/man" />
 
         <RadioButton
             android:id="@+id/radioButton_woman"
-            android:layout_width="60dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/woman" />
     </RadioGroup>
@@ -96,11 +90,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:max="100"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView_self_score"
+        app:layout_constraintEnd_toStartOf="@+id/textView_self_score"
+        app:layout_constraintStart_toEndOf="@+id/textView8"
         app:layout_constraintTop_toBottomOf="@+id/seekBar_years_of_working"
         tools:ignore="MissingConstraints" />
 
@@ -110,12 +103,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:indeterminate="false"
         android:max="10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView_years_of_working"
+        app:layout_constraintEnd_toStartOf="@+id/textView_years_of_working"
+        app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/button_date_selection"
         tools:ignore="MissingConstraints" />
 
@@ -124,16 +116,17 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:entries="@array/spinner_native_place"
+        app:layout_constraintBottom_toBottomOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toTopOf="@+id/textView5" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="80dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:labelFor="@id/editText_name"
@@ -145,7 +138,7 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="80dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="@string/sex"
@@ -156,14 +149,14 @@
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="80dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="@string/native_place"
         android:textAlignment="textEnd"
-        app:layout_constraintBottom_toBottomOf="@+id/spinner_native_place"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/spinner_native_place" />
+        app:layout_constraintBottom_toBottomOf="@+id/radioGroup"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup"
+        app:layout_constraintTop_toTopOf="@+id/radioGroup" />
 
     <TextView
         android:id="@+id/textView6"
@@ -201,24 +194,13 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="15dp"
-        android:text="@string/signature"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_crash"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
         android:id="@+id/textView_years_of_working"
         android:layout_width="45dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:textAlignment="textEnd"
         app:layout_constraintBottom_toBottomOf="@+id/seekBar_years_of_working"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/seekBar_years_of_working"
         tools:ignore="MissingConstraints" />
 
@@ -226,11 +208,12 @@
         android:id="@+id/textView_self_score"
         android:layout_width="45dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:textAlignment="textEnd"
         app:layout_constraintBottom_toBottomOf="@+id/seekBar_score"
-        app:layout_constraintStart_toEndOf="@+id/textView8"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/seekBar_score"
+        app:layout_constraintVertical_bias="1.0"
         tools:ignore="MissingConstraints" />
 
     <liushilive.github.io.view.FingerView
@@ -245,7 +228,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/button_crash" />
 
     <TextView
         android:id="@+id/textView_birthdate"
@@ -265,7 +248,6 @@
         android:id="@+id/button_date_selection"
         android:layout_width="88dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/date_selection"
         app:layout_constraintEnd_toEndOf="parent"
@@ -278,9 +260,19 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="@+id/button_long_press"
-        app:layout_constraintEnd_toStartOf="@+id/button_time"
-        app:layout_constraintStart_toEndOf="@+id/button_long_press"
-        app:layout_constraintTop_toTopOf="@+id/button_long_press" />
+        app:layout_constraintBottom_toBottomOf="@+id/button_time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_time"
+        app:layout_constraintTop_toTopOf="@+id/button_time" />
+
+    <Button
+        android:id="@+id/button_permission"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="权限"
+        app:layout_constraintBottom_toBottomOf="@+id/button_not_responding"
+        app:layout_constraintStart_toEndOf="@+id/button_not_responding"
+        app:layout_constraintTop_toTopOf="@+id/button_not_responding" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

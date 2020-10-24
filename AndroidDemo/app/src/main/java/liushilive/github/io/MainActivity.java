@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.view.Menu;
@@ -16,6 +17,7 @@ import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -136,5 +138,25 @@ public class MainActivity extends AppCompatActivity {
                 })
                 .setNegativeButton("取消", null)
                 .show();
+    }
+
+    // 请求权限回调方法
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case 1002:
+                // 1002请求码对应的是申请多个权限
+                if (grantResults.length > 0) {
+                    // 因为是多个权限，所以需要一个循环获取每个权限的获取情况
+                    for (int i = 0; i < grantResults.length; i++) {
+                        // PERMISSION_DENIED 这个值代表是没有授权，我们可以把被拒绝授权的权限显示出来
+                        if (grantResults[i] == PackageManager.PERMISSION_DENIED) {
+                            Toast.makeText(this, permissions[i] + " 权限被拒绝了", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+                break;
+        }
     }
 }
