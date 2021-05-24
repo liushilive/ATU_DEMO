@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // 定义文件夹目录地址
-        final String path = getExternalFilesDir(null).getAbsolutePath() + File.separator + "JC";
+        final String path = "/sdcard/Android/media/JC/html";
         // 创建文件目录
         File destDir = new File(path);
         if (!destDir.exists()) {
